@@ -1,0 +1,38 @@
+<div class="alert alert-info alert-dismissible" role="alert" >
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="exitLogin()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="login-header">Login to your user testing here</div>
+  <div id="orElement">or</div>
+
+  <form [formGroup]="myForm">
+    <div class="form-group" [ngClass]="{'has-error':!myForm.controls['email'].valid && myForm.controls['email'].touched}">
+      <label> E-mail </label>
+      <div class="input-group">
+        <input id="email" class="form-control" type="text" formControlName="email" placeholder="E-mail">
+      </div>
+      <div *ngIf=" myForm.controls['email'].hasError('required')&& myForm.controls['email'].touched" class="alert alert-danger" >You must include your email.</div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!myForm.controls['password'].valid && myForm.controls['password'].touched}">
+      <label> Password </label>
+      <div class="input-group">
+        <input id="password" class="form-control" type="text" formControlName="password" placeholder="Password">
+      </div>
+      <div *ngIf="myForm.controls['password'].hasError('required')&& myForm.controls['password'].touched" class="alert alert-danger" >You must include your password.</div>
+    </div>
+  </form>
+
+  <div>Forgot your password?</div>
+  <div>Not yet a tester? Click here</div>
+
+</div>
+
+<!--<div id="popup1">-->
+  <!--<div class="popup">-->
+    <!--<h2>Here i am</h2>-->
+    <!--<a class="close" href="#">&times;</a>-->
+    <!--<div class="content">-->
+      <!--Thank to pop me out of that button, but now i'm done so you can close this window.-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

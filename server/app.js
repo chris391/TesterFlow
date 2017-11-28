@@ -17,7 +17,7 @@ app.use('/', express.static(__dirname + '/../dist'));
 
 // all other routes are handled by Angular
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname,'/../index.html'));
+  res.sendFile(path.join(__dirname,'../src/index.html'));
 });
 
 app.listen(app.get('port'), function() {

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  isLogin = false;
+
+  enterLogin(){
+    this.isLogin = true;
+  }
+  exitLogin(){
+    this.isLogin = false;
+  }
 }

@@ -1,0 +1,46 @@
+
+.btn:hover{
+  cursor: pointer;
+}
+.lang{
+  float: right;
+  align-self: flex-end;
+  margin-right: 18px;
+}
+.btn-lang {
+  /*display: block;*/
+  background-color: #8abc22;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-family: 'Proxima Nova Regular', Arial, sans-serif;
+  font-size: 10px;
+
+}
+.router-link {
+  color: #b2a384;
+  font-family: Georgia, 'Proxima Nova Regular', Arial, sans-serif;
+  font-size: 20px;
+}
+.bliv-header {
+  font-size: 80px;
+  color: #005A70;
+  /*font-family: 'Open Sans Bold', Arial, sans-serif;*/
+  font-family: 'Open Sans', sans-serif;
+  /*font-weight: bold;*/
+  margin: 0;
+  padding-top: 45px;
+  position: relative;
+  z-index: 1;
+  height: auto;
+}
+.nav-item:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.navbar {
+  min-height: 60px;
+  max-height: 80px;
+}
