@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ElementRef, NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {AppRouting} from "./app.routes";
@@ -43,12 +43,9 @@ export function provideConfig() {
   providers: [
     LoginComponent,
     AppComponent,
-
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    {
-      provide: AuthServiceConfig,
-      useFactory: provideConfig
-    }
+    {provide: AuthServiceConfig, useFactory: provideConfig},
+    ElementRef
     ],
   bootstrap: [AppComponent]
 })

@@ -24,6 +24,7 @@
   border-color: white;
   box-shadow: 0 0 20px #000000;
   color: #333333;
+  padding-bottom: 20px;
   /*-webkit-filter: blur(2px);*/
   /*filter: blur(2px);*/
 }
@@ -54,9 +55,10 @@
   margin-bottom: 20px;
   line-height: 0;
 }
-.btn-green {
+.login-btn-green {
   width: auto;
   height: 43px;
+  margin-bottom: 44px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
