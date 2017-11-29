@@ -1,6 +1,35 @@
+/*div > *:not(.input-group) {*/
+  /*filter: blur(3px);*/
+/*}*/
+.alert-danger{
+  padding: 3px 3px 3px 3px;
+}
 .alert {
-  overflow-x: auto;
-  overflow-y: auto;
+  /*overflow-x: auto;*/
+  /*overflow-y: auto;*/
+  z-index:900;
+  /*z-index: 2; !* Make sure its above other items. *!*/
+  position: relative;
+  width: 510px; /* Set your desired with */
+  /*height: 380px; !* Set your desired with *!*/
+  height: auto; /* Set your desired with */
+  /*width: 40%; */
+  /*height: 45%; */
+  margin: 0 auto;
+  /*top: 30%;*/
+  /*left: 40%;*/
+  /*margin-top: -10%;*/
+  /*margin-left: -10%; */
+  background-color: white;
+  border-color: white;
+  box-shadow: 0 0 20px #000000;
+  color: #333333;
+  /*-webkit-filter: blur(2px);*/
+  /*filter: blur(2px);*/
+}
+.alert2 {
+  /*overflow-x: auto;*/
+  /*overflow-y: auto;*/
   z-index: 2; /* Make sure its above other items. */
   position: fixed;
   width: 40%; /* Set your desired with */
@@ -21,71 +50,44 @@
   text-align: center;
   font-size: 30px;
   color: #000;
-  margin-top: 35px;
+  margin-top: 10px;
   margin-bottom: 20px;
-  line-height: 0px;
+  line-height: 0;
 }
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
+.btn-green {
+  width: auto;
+  height: 43px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
-
-.popup h2 {
-  margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
-}
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popup .close:hover {
-  color: #06D85F;
-}
-.popup .content {
-  max-height: 30%;
-  overflow: auto;
-}
-.login-header {
-  margin-top: 20px;
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  font-size: 28px;
-  color: #005A70;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-
+  border: 1px solid #8abc22;
+  border-bottom: 1px solid #71a816;
+  background: #8abc22;
+  padding: 10px 10px 15px 10px;
+  font-size: 18px;
+  color: #fff;
+  float: right;
+  font-family: 'Open Sans', Arial, sans-serif;
+  cursor: pointer;
 }
 .close{
   padding: 0 0 0 0;
   margin-right: 10px;
   margin-top: 10px;
+}
+.login-header {
+  margin-top: 20px;
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-align: center;
+  font-size: 26px;
+  color: #005A70;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+.login-icon{
+  cursor: pointer;
+  float: left;
+  position: relative;
+  left: 50%;
 }

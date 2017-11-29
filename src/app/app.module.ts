@@ -8,37 +8,47 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {LoginComponent} from "./shared/login/login.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from "angular4-social-login";
+import {DemoComponent} from "./demo/demo.component";
+import {CustomValidators} from "./custom-validators/custom-validators";
 
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider("Google-OAuth-Client-Id")
+    provider: new GoogleLoginProvider("456433401420-is0hibqjcgru12762tnlb7rdam56http.apps.googleusercontent.com")
   },
   {
     id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider("Facebook-App-Id")
+    provider: new FacebookLoginProvider("561602290896109")
   }
 ]);
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     AppRouting,
     FormsModule,
     ReactiveFormsModule,
-    SocialLoginModule.initialize(config)
+    SocialLoginModule
   ],
   providers: [
     LoginComponent,
     AppComponent,
 
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
     ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-login *ngIf="isLogin"></app-login>
-<div *ngIf="isLogin" id="hei"></div>
-<div>
+
+  <div>
   <nav class="navbar navbar-light bg-faded" style="background: #005A70;">
     <div class="lang" style="margin-right: 50px">
       <button class="btn btn-success btn-sm btn-lang">ENG</button>
@@ -15,11 +14,12 @@
       <li class="nav-item">
         <a routerLink class="nav-link router-link" (click)="enterLogin()">Log in</a>
       </li>
+      <li class="nav-item">
+        <a routerLink="demo" class="nav-link router-link">Demo</a>
+      </li>
     </ul>
   </nav>
 </div>
-
-<div>backdrop blur</div>
 
 <div style="text-align:center" class="bliv-header">
   <h1>
@@ -27,6 +27,7 @@
   </h1>
 </div>
 
+<app-login *ngIf="isLogin"></app-login>
 
 <router-outlet></router-outlet>
 
