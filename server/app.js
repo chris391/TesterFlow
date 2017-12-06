@@ -24,4 +24,34 @@ app.listen(app.get('port'), function() {
   console.log('Angular 2 Full Stack listening on port ' + app.get('port'));
 });
 
+// var mysql      = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : '',
+//   database: 'bruger_ci_dev'
+// });
+//
+// connection.connect(function(err) {
+//   if (err) {
+//     console.error('error connecting: ' + err.stack);
+//     return;
+//   }
+//
+//   console.log('connected as id ' + connection.threadId);
+// });
+
+app.get('/languages', function (req, res) {
+
+  console.log('jhei');
+  // connection.query('SELECT * FROM languages', function (error, results, fields) {
+  //   if (error) throw error;
+  //
+  //   console.log(results);
+  //   // res.json(results);
+  //   // results.json(docs);
+  // });
+});
+
+
 module.exports = app;

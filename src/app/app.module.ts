@@ -10,6 +10,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from "angular4-social-login";
 import {DemoComponent} from "./demo/demo.component";
 import {CustomValidators} from "./custom-validators/custom-validators";
+import {AuthGuard} from "./guards/auth.guard";
+import {LoggedComponent} from "./logged/logged.component";
+import { TestComponent } from './test/test.component';
+import { TestsComponent } from './tests/tests.component';
+import {DataService} from "./services/data.service";
+import {Http, HttpModule} from "@angular/http";
+import {HttpClientModule} from "@angular/common/http";
 
 let config = new AuthServiceConfig([
   {
@@ -31,12 +38,18 @@ export function provideConfig() {
     HomeComponent,
     PageNotFoundComponent,
     LoginComponent,
-    DemoComponent
+    DemoComponent,
+    LoggedComponent,
+    TestComponent,
+    TestsComponent
+
   ],
   imports: [
     BrowserModule,
     AppRouting,
     FormsModule,
+    // HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     SocialLoginModule
   ],
@@ -45,7 +58,9 @@ export function provideConfig() {
     AppComponent,
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: AuthServiceConfig, useFactory: provideConfig},
-    ElementRef
+    AuthGuard,
+    DataService,
+    // Http
     ],
   bootstrap: [AppComponent]
 })

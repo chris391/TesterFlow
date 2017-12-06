@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input} from '@angular/core';
+import {Component, ElementRef, forwardRef, Inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CustomValidators} from "../../custom-validators/custom-validators";
 import {AppComponent} from "../../app.component";
@@ -8,23 +8,42 @@ import {AuthService} from "angular4-social-login";
 
 @Component({
   selector: 'app-login',
-  host: {
-    '(document:click)': 'handleClick($event)',
-  },
+  // host: {'(document:click)': 'handleClick($event)'},
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   public myForm: FormGroup;
   user: SocialUser;
-  public elementRef;
+  elementRef;
+  displayLogin = false;
 
-  constructor(private fb: FormBuilder, private appComponent: AppComponent, private route: ActivatedRoute,
-              private authService: AuthService, private myElement: ElementRef){
-    this.elementRef = myElement;
+  constructor(private fb: FormBuilder, private appComponent: AppComponent, private router: Router, private route: ActivatedRoute,
+              private authService: AuthService,
+              // private myElement: ElementRef
+  ){
+    // this.elementRef = myElement;
 
   }
-  //FIXME http://4dev.tech/2016/03/angular2-tutorial-detecting-clicks-outside-the-component/
+
+  ngOnInit(){
+    this.authService.authState.subscribe(user => {
+      this.user = user;
+      if (user !== null){
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.appComponent.exitLogin();
+      }
+
+    });
+
+    this.myForm = this.fb.group({
+      email: ['', Validators.compose([Validators.required, CustomValidators.validateEmail])],
+      password: ['', Validators.compose([Validators.required])]
+    });
+
+  }
+
+  //FIXME set displayLogin to false in AppComponent if user clicks outside LoginComponent
   handleClick(event){
     let clickedComponent = event.target;
     let inside = false;
@@ -41,22 +60,6 @@ export class LoginComponent {
     }
   }
 
-  ngOnInit(){
-
-    this.authService.authState.subscribe((user) => {
-        this.user = user;
-        console.log(user);
-      },
-      err => console.log(err))
-
-    this.myForm = this.fb.group({
-      email: ['', Validators.compose([Validators.required, CustomValidators.validateEmail])],
-      password: ['', Validators.compose([Validators.required])]
-    });
-
-  }
-
-
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
@@ -67,11 +70,12 @@ export class LoginComponent {
 
   signOut(): void {
     this.authService.signOut();
+    localStorage.removeItem("currentUser");
   }
 
   exitLogin(){
     this.appComponent.exitLogin();
+    localStorage.removeItem("currentUser");
   }
 
 }
-

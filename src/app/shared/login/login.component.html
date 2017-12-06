@@ -1,14 +1,12 @@
-<div id="loading" class="alert alert-info alert-dismissible" role="alert" >
+<div class="alert alert-info alert-dismissible" role="alert" >
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="exitLogin()">
     <span aria-hidden="true">&times;</span>
   </button>
   <div class="login-header">Login to your user testing here</div>
 
-  <div *ngIf="!user">
     <i class="fa fa-facebook-square fa-2x" (click)="signInWithFB()" style="color: #3B5998;"></i>
     <i class="fa fa-google-plus-square fa-2x" (click)="signInWithGoogle()" style="color: #d34836;"></i>
     <i class="fa fa-linkedin-square fa-2x" style="color: #0077b5;"></i>
-  </div>
 
   <div id="orElement">or</div>
 
@@ -33,7 +31,7 @@
   <a href="">Forgot your password?</a>
   <br>
   <a href="">Not yet a tester? Click here</a>
-  <button class="btn btn-danger" (click)="signOut()"  [disabled]="!user">Sign out</button>
+  <button class="btn btn-danger" (click)="signOut()" [disabled]="!user">Sign out</button>
   <button class="btn login-btn-green">Log in</button>
 
 </div>

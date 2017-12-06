@@ -1,33 +1,42 @@
 <!--The content below is only a placeholder and can be replaced.-->
-
+<div>
   <div>
-  <nav class="navbar navbar-light bg-faded" style="background: #005A70;">
-    <div class="lang" style="margin-right: 50px">
+  <nav class="navbar navbar-light bg-faded">
+    <div class="lang">
       <button class="btn btn-success btn-sm btn-lang">ENG</button>
       <button class="btn btn-success btn-sm btn-lang">DAN</button>
-
     </div>
-    <ul class="nav justify-content-end" style="margin-right: 50px">
+
+    <ul class="nav justify-content-end" >
       <li class="nav-item">
-        <a routerLink="home" class="nav-link active router-link">Mail</a>
+        <a routerLink="home" class="nav-link router-link">Home</a>
       </li>
       <li class="nav-item">
-        <a routerLink class="nav-link router-link" (click)="enterLogin()">Log in</a>
+        <a class="nav-link active router-link" href="mailto:service@usertribe.com">Mail</a>
       </li>
       <li class="nav-item">
-        <a routerLink="demo" class="nav-link router-link">Demo</a>
+        <a routerLink class="nav-link router-link" (click)="enterLogin()" *ngIf="isUserLoggedIn()">Log in</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="logged" class="nav-link router-link">Logged</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink class="nav-link router-link">FAQ</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="tests" class="nav-link router-link">My Tests</a>
       </li>
     </ul>
   </nav>
 </div>
 
-<div style="text-align:center" class="bliv-header">
+<div class="bliv-header">
   <h1>
     Become a User Tester
   </h1>
 </div>
-
-<app-login *ngIf="isLogin"></app-login>
+<app-login *ngIf="displayLogin"></app-login>
 
 <router-outlet></router-outlet>
 
+</div>

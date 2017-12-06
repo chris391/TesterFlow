@@ -5,7 +5,8 @@
 .lang{
   float: right;
   align-self: flex-end;
-  margin-right: 18px;
+  /*margin-right: 18px;*/
+  margin-right: 50px
 }
 .btn-lang {
   /*display: block;*/
@@ -29,6 +30,7 @@
   color: #005A70;
   /*font-family: 'Open Sans Bold', Arial, sans-serif;*/
   font-family: 'Open Sans', sans-serif;
+  text-align: center;
   /*font-weight: bold;*/
   margin: 0;
   padding-top: 45px;
@@ -43,4 +45,8 @@
 .navbar {
   min-height: 60px;
   max-height: 80px;
+  background: #005A70;
+}
+.nav{
+  margin-right: 50px;
 }
